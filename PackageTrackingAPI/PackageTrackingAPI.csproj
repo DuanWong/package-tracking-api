@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\PackageTrackingAPI.BLL\PackageTrackingAPI.BLL.csproj" />
     <ProjectReference Include="..\PackageTrackingAPI.DAL\PackageTrackingAPI.DAL.csproj" />
-    <ProjectReference Include="..\PackageTrackingAPI.DTOs\PackageTrackingAPI.DTOs.csproj" />
     <ProjectReference Include="..\PackageTrackingAPI.Mapping\PackageTrackingAPI.Mapping.csproj" />
     <ProjectReference Include="..\PackageTrackingAPI.Models\PackageTrackingAPI.Models.csproj" />
   </ItemGroup>

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using PackageTrackingAPI.DAL;
-using PackageTrackingAPI.DTOs;
 using PackageTrackingAPI.Models;
 
 namespace PackageTrackingAPI.BLL

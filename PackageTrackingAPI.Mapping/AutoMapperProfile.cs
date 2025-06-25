@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using PackageTrackingAPI.DTOs;
 using PackageTrackingAPI.Models;
 
 namespace PackageTrackingAPI.Mapping

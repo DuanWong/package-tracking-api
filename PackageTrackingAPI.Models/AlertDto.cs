@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PackageTrackingAPI.DTOs
+namespace PackageTrackingAPI.Models
 {
     public class AlertDto
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PackageTrackingAPI.BLL;
-using PackageTrackingAPI.DTOs;
+using PackageTrackingAPI.Models;
 
 namespace PackageTrackingAPI.Controllers
 {

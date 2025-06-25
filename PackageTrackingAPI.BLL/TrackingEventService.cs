@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using PackageTrackingAPI.DAL;
-using PackageTrackingAPI.DTOs;
 using PackageTrackingAPI.Models;
 
 namespace PackageTrackingAPI.BLL

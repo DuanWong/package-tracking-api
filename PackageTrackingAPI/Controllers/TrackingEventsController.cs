@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PackageTrackingAPI.DTOs;
 using PackageTrackingAPI.Models;
 using AutoMapper;
 using System;
