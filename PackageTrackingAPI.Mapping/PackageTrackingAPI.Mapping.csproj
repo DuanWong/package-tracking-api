@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PackageTrackingAPI.DTOs\PackageTrackingAPI.DTOs.csproj" />
     <ProjectReference Include="..\PackageTrackingAPI.Models\PackageTrackingAPI.Models.csproj" />
   </ItemGroup>
 

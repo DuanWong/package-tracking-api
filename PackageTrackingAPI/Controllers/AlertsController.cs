@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PackageTrackingAPI.BLL;
-using PackageTrackingAPI.DTOs;
+using PackageTrackingAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
