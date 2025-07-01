@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PackageTrackingAPI.DAL;
@@ -12,48 +11,42 @@ using PackageTrackingAPI.DAL;
 namespace PackageTrackingAPI.DAL.Migrations
 {
     [DbContext(typeof(PackageTrackingContext))]
-    [Migration("20250412025941_InitialCreate")]
+    [Migration("20250701004526_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.14")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.14");
 
             modelBuilder.Entity("Package", b =>
                 {
                     b.Property<int>("PackageID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PackageID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CurrentStatus")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReceiverAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReceiverName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("SenderID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("TrackingNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("PackageID");
 
@@ -65,7 +58,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                         new
                         {
                             PackageID = 101,
-                            CreatedAt = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7620),
+                            CreatedAt = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6348),
                             CurrentStatus = "Created",
                             ReceiverAddress = "123 Main St, City, Country",
                             ReceiverName = "John Doe",
@@ -75,7 +68,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                         new
                         {
                             PackageID = 102,
-                            CreatedAt = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7626),
+                            CreatedAt = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6353),
                             CurrentStatus = "Shipped",
                             ReceiverAddress = "456 Oak St, City, Country",
                             ReceiverName = "Jane Smith",
@@ -85,7 +78,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                         new
                         {
                             PackageID = 103,
-                            CreatedAt = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7628),
+                            CreatedAt = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6355),
                             CurrentStatus = "Delivered",
                             ReceiverAddress = "789 Pine St, City, Country",
                             ReceiverName = "Alice Johnson",
@@ -95,7 +88,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                         new
                         {
                             PackageID = 104,
-                            CreatedAt = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7630),
+                            CreatedAt = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6357),
                             CurrentStatus = "In Transit",
                             ReceiverAddress = "101 Maple St, City, Country",
                             ReceiverName = "Bob Williams",
@@ -105,7 +98,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                         new
                         {
                             PackageID = 105,
-                            CreatedAt = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7632),
+                            CreatedAt = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6359),
                             CurrentStatus = "Returned",
                             ReceiverAddress = "202 Birch St, City, Country",
                             ReceiverName = "Charlie Brown",
@@ -118,22 +111,20 @@ namespace PackageTrackingAPI.DAL.Migrations
                 {
                     b.Property<int>("AlertID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlertID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Message")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("PackageID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UserID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("AlertID");
 
@@ -188,25 +179,23 @@ namespace PackageTrackingAPI.DAL.Migrations
                 {
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserID");
 
@@ -259,23 +248,21 @@ namespace PackageTrackingAPI.DAL.Migrations
                 {
                     b.Property<int>("EventID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EventID"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("PackageID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("EventID");
 
@@ -290,7 +277,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                             Location = "Warehouse A",
                             PackageID = 101,
                             Status = "Package created",
-                            Timestamp = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7662)
+                            Timestamp = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6393)
                         },
                         new
                         {
@@ -298,7 +285,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                             Location = "Warehouse B",
                             PackageID = 102,
                             Status = "Package shipped",
-                            Timestamp = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7665)
+                            Timestamp = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6403)
                         },
                         new
                         {
@@ -306,7 +293,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                             Location = "Delivery Point",
                             PackageID = 103,
                             Status = "Package delivered",
-                            Timestamp = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7667)
+                            Timestamp = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6405)
                         },
                         new
                         {
@@ -314,7 +301,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                             Location = "Distribution Center",
                             PackageID = 104,
                             Status = "Package in transit",
-                            Timestamp = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7669)
+                            Timestamp = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6407)
                         },
                         new
                         {
@@ -322,7 +309,7 @@ namespace PackageTrackingAPI.DAL.Migrations
                             Location = "Returned to sender",
                             PackageID = 105,
                             Status = "Package returned",
-                            Timestamp = new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7670)
+                            Timestamp = new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6408)
                         });
                 });
 

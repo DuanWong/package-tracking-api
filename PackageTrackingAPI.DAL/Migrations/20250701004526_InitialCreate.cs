@@ -17,12 +17,12 @@ namespace PackageTrackingAPI.DAL.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    UserID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<string>(type: "TEXT", nullable: false),
+                    PasswordHash = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,12 +33,12 @@ namespace PackageTrackingAPI.DAL.Migrations
                 name: "Alerts",
                 columns: table => new
                 {
-                    AlertID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    PackageID = table.Column<int>(type: "int", nullable: false),
-                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    AlertID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserID = table.Column<int>(type: "INTEGER", nullable: false),
+                    PackageID = table.Column<int>(type: "INTEGER", nullable: false),
+                    Message = table.Column<string>(type: "TEXT", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,14 +55,14 @@ namespace PackageTrackingAPI.DAL.Migrations
                 name: "Packages",
                 columns: table => new
                 {
-                    PackageID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TrackingNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SenderID = table.Column<int>(type: "int", nullable: false),
-                    ReceiverName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ReceiverAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CurrentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PackageID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    TrackingNumber = table.Column<string>(type: "TEXT", nullable: false),
+                    SenderID = table.Column<int>(type: "INTEGER", nullable: false),
+                    ReceiverName = table.Column<string>(type: "TEXT", nullable: false),
+                    ReceiverAddress = table.Column<string>(type: "TEXT", nullable: false),
+                    CurrentStatus = table.Column<string>(type: "TEXT", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,12 +79,12 @@ namespace PackageTrackingAPI.DAL.Migrations
                 name: "TrackingEvents",
                 columns: table => new
                 {
-                    EventID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PackageID = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    EventID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PackageID = table.Column<int>(type: "INTEGER", nullable: false),
+                    Status = table.Column<string>(type: "TEXT", nullable: false),
+                    Location = table.Column<string>(type: "TEXT", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -126,11 +126,11 @@ namespace PackageTrackingAPI.DAL.Migrations
                 columns: new[] { "PackageID", "CreatedAt", "CurrentStatus", "ReceiverAddress", "ReceiverName", "SenderID", "TrackingNumber" },
                 values: new object[,]
                 {
-                    { 101, new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7620), "Created", "123 Main St, City, Country", "John Doe", 1, "TRACK1234" },
-                    { 102, new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7626), "Shipped", "456 Oak St, City, Country", "Jane Smith", 2, "TRACK5678" },
-                    { 103, new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7628), "Delivered", "789 Pine St, City, Country", "Alice Johnson", 3, "TRACK9101" },
-                    { 104, new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7630), "In Transit", "101 Maple St, City, Country", "Bob Williams", 4, "TRACK1121" },
-                    { 105, new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7632), "Returned", "202 Birch St, City, Country", "Charlie Brown", 5, "TRACK3141" }
+                    { 101, new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6348), "Created", "123 Main St, City, Country", "John Doe", 1, "TRACK1234" },
+                    { 102, new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6353), "Shipped", "456 Oak St, City, Country", "Jane Smith", 2, "TRACK5678" },
+                    { 103, new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6355), "Delivered", "789 Pine St, City, Country", "Alice Johnson", 3, "TRACK9101" },
+                    { 104, new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6357), "In Transit", "101 Maple St, City, Country", "Bob Williams", 4, "TRACK1121" },
+                    { 105, new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6359), "Returned", "202 Birch St, City, Country", "Charlie Brown", 5, "TRACK3141" }
                 });
 
             migrationBuilder.InsertData(
@@ -138,11 +138,11 @@ namespace PackageTrackingAPI.DAL.Migrations
                 columns: new[] { "EventID", "Location", "PackageID", "Status", "Timestamp" },
                 values: new object[,]
                 {
-                    { 1, "Warehouse A", 101, "Package created", new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7662) },
-                    { 2, "Warehouse B", 102, "Package shipped", new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7665) },
-                    { 3, "Delivery Point", 103, "Package delivered", new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7667) },
-                    { 4, "Distribution Center", 104, "Package in transit", new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7669) },
-                    { 5, "Returned to sender", 105, "Package returned", new DateTime(2025, 4, 12, 2, 59, 41, 0, DateTimeKind.Utc).AddTicks(7670) }
+                    { 1, "Warehouse A", 101, "Package created", new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6393) },
+                    { 2, "Warehouse B", 102, "Package shipped", new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6403) },
+                    { 3, "Delivery Point", 103, "Package delivered", new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6405) },
+                    { 4, "Distribution Center", 104, "Package in transit", new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6407) },
+                    { 5, "Returned to sender", 105, "Package returned", new DateTime(2025, 7, 1, 0, 45, 24, 638, DateTimeKind.Utc).AddTicks(6408) }
                 });
 
             migrationBuilder.CreateIndex(
